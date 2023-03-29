@@ -6,9 +6,16 @@ import NavLink from './NavLink/';
 import actions from '../../../redux/actions/';
 import { height } from '@mui/system';
 
+import SearchBar from '../../Dashboard/SearchBar';
+
 const Navbar = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => !!state.authentication.token);
+  const handleSearch = (value) => {
+    setSearchText(value);
+    setShowClearButton(value !== '');
+    onSearch(value);
+  };
   return (
     <>
       <div className="tabs  is-centered">
@@ -41,6 +48,10 @@ const Navbar = () => {
           <Link href="/upload">
             <a>Upload</a>
           </Link>
+          <section>
+            <SearchBar placeholder="Search" onSearch={handleSearch} />
+
+        </section>
           {isAuthenticated && (
             <li onClick={() => dispatch(actions.deauthenticate())}>
               <a>Log Out</a>

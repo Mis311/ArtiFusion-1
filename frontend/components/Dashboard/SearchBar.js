@@ -9,11 +9,12 @@ const SearchBar = ({ placeholder, onSearch }) => {
   const [searchText, setSearchText] = useState('');
   const [showClearButton, setShowClearButton] = useState(false);
 
-  const handleSearch = (event) => {
-    setSearchText(event.target.value);
-    setShowClearButton(event.target.value !== '');
-    onSearch(event.target.value);
+  const handleSearch = (value) => {
+    setSearchText(value);
+    setShowClearButton(value !== '');
+    onSearch(value);
   };
+  
 
   const handleClear = () => {
     setSearchText('');
@@ -26,13 +27,16 @@ const SearchBar = ({ placeholder, onSearch }) => {
       border: '1px solid #e6e6e6', 
       borderRadius: '5px', 
       padding: '10px',
-      width: '40%'
+      margin:'1rem',
+      width: '80%'
     }}>
+
+
       <Input
         type="text"
         placeholder={placeholder}
         value={searchText}
-        onChange={handleSearch}
+        onChange={(event) => handleSearch(event.target.value)}
         endAdornment={
           <InputAdornment position="end">
             {showClearButton ? (
