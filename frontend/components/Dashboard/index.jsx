@@ -2,7 +2,7 @@ import Sidebar from './Sidebar';
 import ContentItem from './ContentItem';
 import { Chip } from '@mui/material';
 import TagList from './TagList';
-import SearchBar from "../../components/Dashboard/SearchBar"
+import SearchBar from '../../components/Dashboard/SearchBar';
 const Dashboard = () => {
   const contentItems = [
     {
@@ -47,30 +47,30 @@ const Dashboard = () => {
   };
   return (
     <>
-       <section>
-            <SearchBar placeholder="Search" onSearch={handleSearch} />
+      <section>
+        <SearchBar placeholder="Search" onSearch={handleSearch} />
+      </section>
+
+      <div className="columns">
+        <Sidebar />
+        <main className="column">
+          <section className="section">
+            <div className="columns is-multiline">
+              {contentItems.map(item => (
+                <div className="column is-one-quarter" key={item.id}>
+                  <ContentItem
+                    title={item.title}
+                    username={item.username}
+                    thumbnailUrl={item.thumbnailUrl}
+                    tags={item.tags}
+                  />
+                </div>
+              ))}
+            </div>
           </section>
-    
-    <div className="columns">
-      <Sidebar />
-      <main className="column">
-        <section className="section">
-          <div className="columns is-multiline">
-            {contentItems.map(item => (
-              <div className="column is-one-quarter" key={item.id}>
-                <ContentItem
-                  title={item.title}
-                  username={item.username}
-                  thumbnailUrl={item.thumbnailUrl}
-                  tags={item.tags}
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-        {/* <TagList tags={[{tag: "tag1"}, {tag: "tag2"}, {tag: "tag3"}]} onTagClick={(tag) => console.log(tag)} /> */}
-      </main>
-    </div>
+          {/* <TagList tags={[{tag: "tag1"}, {tag: "tag2"}, {tag: "tag3"}]} onTagClick={(tag) => console.log(tag)} /> */}
+        </main>
+      </div>
     </>
   );
 };
