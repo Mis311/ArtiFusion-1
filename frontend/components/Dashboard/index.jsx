@@ -2,7 +2,7 @@ import Sidebar from './Sidebar';
 import ContentItem from './ContentItem';
 import { Chip } from '@mui/material';
 import TagList from './TagList';
-
+import SearchBar from "../../components/Dashboard/SearchBar"
 const Dashboard = () => {
   const contentItems = [
     {
@@ -46,6 +46,11 @@ const Dashboard = () => {
     // Handle search text
   };
   return (
+    <>
+       <section>
+            <SearchBar placeholder="Search" onSearch={handleSearch} />
+          </section>
+    
     <div className="columns">
       <Sidebar />
       <main className="column">
@@ -66,6 +71,7 @@ const Dashboard = () => {
         {/* <TagList tags={[{tag: "tag1"}, {tag: "tag2"}, {tag: "tag3"}]} onTagClick={(tag) => console.log(tag)} /> */}
       </main>
     </div>
+    </>
   );
 };
 

@@ -7,7 +7,6 @@ import NavLink from './NavLink/';
 import actions from '../../../redux/actions/';
 import { height } from '@mui/system';
 
-import SearchBar from '../../Dashboard/SearchBar';
 import UserProfile from '../../Profile/UserProfile';
 import ProfileIcon from '../../Profile/ProfileIcon';
 
@@ -52,9 +51,7 @@ const Navbar = () => {
           <Link href="/upload">
             <a>Upload</a>
           </Link>
-          <section>
-            <SearchBar placeholder="Search" onSearch={handleSearch} />
-          </section>
+         
           {isAuthenticated && (
             <li onClick={() => dispatch(actions.deauthenticate())}>
               <a>Log Out</a>

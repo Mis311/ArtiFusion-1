@@ -1,5 +1,3 @@
-
-
 const ContentItem = ({ title, username, thumbnailUrl }) => {
   return (
     <div className="card">
@@ -8,9 +6,9 @@ const ContentItem = ({ title, username, thumbnailUrl }) => {
           <img src={thumbnailUrl} alt={title} />
         </figure>
       </div>
-      <div className="card-content">
+      <div className="card-content" >
         <div className="media">
-          <div className="media-content">
+          <div className="media-content" style={{ overflow: 'hidden' }}>
             <p className="title is-4">{title}</p>
             <p className="subtitle is-6">by {username}</p>
           </div>
