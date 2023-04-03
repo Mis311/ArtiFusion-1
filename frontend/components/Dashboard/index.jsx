@@ -1,10 +1,12 @@
 import Sidebar from './Sidebar';
 import ContentItem from './ContentItem';
 import { Chip } from '@mui/material';
+import verifyToken from '../../getInitialProps/verifyToken';
+
 import TagList from './TagList';
 
-const Dashboard = () => {
-  const contentItems = [
+const Dashboard = ( { contents } ) => {
+  /*const contentItems = [
     {
       id: 1,
       title: 'Art 1',
@@ -40,23 +42,24 @@ const Dashboard = () => {
       thumbnailUrl: '/artworks/manga1.png',
       tags: ['tag2', 'tag6', 'tag7'],
     },
-  ];
+  ];*/
 
   const handleSearch = searchText => {
     // Handle search text
   };
+
   return (
     <div className="columns">
       <Sidebar />
       <main className="column">
         <section className="section">
           <div className="columns is-multiline">
-            {contentItems.map(item => (
+            { contents.map(item => (
               <div className="column is-one-quarter" key={item.id}>
                 <ContentItem
                   title={item.title}
-                  username={item.username}
-                  thumbnailUrl={item.thumbnailUrl}
+                  username={item.creator}
+                  thumbnailUrl={item.image}
                   tags={item.tags}
                 />
               </div>
