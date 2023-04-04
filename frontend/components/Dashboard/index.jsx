@@ -42,7 +42,7 @@ const Dashboard = () => {
       thumbnailUrl: '/artworks/manga1.png',
       tags: ['tag2', 'tag6', 'tag7'],
     },
-  ];*/
+  ];
 
   const handleSearch = searchText => {
     // Handle search text
