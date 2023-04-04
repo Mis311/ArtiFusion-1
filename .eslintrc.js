@@ -14,7 +14,8 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    indent: ['error', 2, { SwitchCase: 1 }],
+    indent: 'off',
+    // indent: ['error', 2, { SwitchCase: 1 }],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'react/jsx-uses-vars': 1,
