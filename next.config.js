@@ -9,8 +9,10 @@ module.exports = {
         options: {
           // eslint options (if necessary)
         },
+        pages: 'frontend/pages',
       });
     }
     return config;
   },
 };
+
