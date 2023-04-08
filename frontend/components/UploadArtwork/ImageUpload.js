@@ -3,7 +3,9 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import getNameServer from '../../utils/getNameServer';
 
-const NewArtworkUpload = ({ nToken }) => {
+
+
+const ImageUpload = ({ nToken }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
@@ -106,4 +108,4 @@ const NewArtworkUpload = ({ nToken }) => {
   );
 };
 
-export default NewArtworkUpload;
+export default ImageUpload;
