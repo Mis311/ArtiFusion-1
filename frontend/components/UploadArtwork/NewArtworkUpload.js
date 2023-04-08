@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import getNameServer from '../../utils/getNameServer';
 
-const NewArtworkUpload = () => {
+const NewArtworkUpload = ({ nToken }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [tags, setTags] = useState([]);
   const [image, setImage] = useState('');
-
+  
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -23,19 +24,38 @@ const NewArtworkUpload = () => {
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
+    const fileType = file.type || '';
+
     const reader = new FileReader();
 
-    reader.onloadend = () => {
-      setImage(reader.result);
-    };
-
-    if (file) {
-      reader.readAsArrayBuffer(file);
+    if(file) {
+      reader.readAsBinaryString(file);
     }
+
+    reader.onload = (ev) => {
+      setImage(`data:${fileType};base64,${btoa(ev.target.result)}`);
+    };
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async (ctx) => {
     // Submit new artwork
+    const artworkData = new FormData();
+    const server = getNameServer(ctx);
+
+    artworkData.append('title', title);
+    artworkData.append('description', description);
+    artworkData.append('tags', tags);
+    artworkData.append('image', image);
+
+    const data = new URLSearchParams(artworkData);
+
+    fetch(`${server}/api/upload_artwork`, {
+      method: 'POST',
+      body: data,
+      headers: {
+        authorization: nToken,
+      }
+    });
   };
 
   return (
@@ -79,7 +99,7 @@ const NewArtworkUpload = () => {
             </label>
           </div>
         </div>
-        {image && <img src={image} alt="Preview" />}
+        {image && <img src={image} />}
         <Button variant="contained" onClick={handleSubmit}>Submit</Button>
       </form>
     </div>

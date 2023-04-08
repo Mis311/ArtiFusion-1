@@ -7,10 +7,11 @@ import NavLink from './NavLink/';
 import actions from '../../../redux/actions/';
 import { height } from '@mui/system';
 
-import SearchBar from '../../Dashboard/SearchBar';
 import UserProfile from '../../Profile/UserProfile';
-import ProfileIcon from '../../Profile/ProfileIcon';
 
+import { Avatar, IconButton } from '@mui/material';
+import UploadMenu from './UploadMenu';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 const Navbar = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector(state => !!state.authentication.token);
@@ -52,9 +53,7 @@ const Navbar = () => {
           <Link href="/upload">
             <a>Upload</a>
           </Link>
-          <section>
-            <SearchBar placeholder="Search" onSearch={handleSearch} />
-          </section>
+
           {isAuthenticated && (
             <li onClick={() => dispatch(actions.deauthenticate())}>
               <a>Log Out</a>
@@ -70,7 +69,25 @@ const Navbar = () => {
               }}
             ></div>
           )}
-          <ProfileIcon />
+          <div className="column is-narrow">
+            <div className="navbar-end">
+              <div className="navbar-item">
+              <div className="level-item">
+                  <UploadMenu />
+              </div>
+                <IconButton color="primary">
+                  <NotificationsIcon />
+                </IconButton>
+                <Link href="/UserProfile">
+                  <Avatar
+                    alt="Profile Picture"
+                    src="/static/images/avatar/1.jpg"
+                    style={{cursor: 'pointer'}}
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
         </ul>
       </div>
     </>
