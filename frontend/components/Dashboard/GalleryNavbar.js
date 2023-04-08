@@ -2,7 +2,7 @@
 import { Chip } from '@mui/material';
 
 const GalleryNavbar = ({ onSelect }) => {
-  const categories = ['All', 'Image', 'Stories', 'Manga & Visual Novel'];
+  const categories = ['All', 'Manga & Visual Novel','Image', 'Stories' ];
 
   return (
     <div className="gallery-navbar">
@@ -11,7 +11,7 @@ const GalleryNavbar = ({ onSelect }) => {
           key={index}
           label={category}
           onClick={() => onSelect(category)}
-          style={{ marginRight: '0.5rem', cursor: 'pointer' }}
+          style={{ margin: '0 0.5rem 0.5rem 0', cursor: 'pointer'}}
         />
       ))}
     </div>
