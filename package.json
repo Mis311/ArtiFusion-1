@@ -21,6 +21,7 @@
     "axios": "^0.21.2",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "caniuse-lite": "^1.0.30001476",
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
@@ -35,6 +36,7 @@
     "passport-local": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-image-gallery": "^1.2.11",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"

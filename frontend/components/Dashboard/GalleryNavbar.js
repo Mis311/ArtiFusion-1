@@ -11,7 +11,8 @@ const GalleryNavbar = ({ onSelect }) => {
           key={index}
           label={category}
           onClick={() => onSelect(category)}
-          style={{ margin: '0 0.5rem 0.5rem 0', cursor: 'pointer'}}
+          size="large"
+          style={{ margin: '0 1rem 0.5rem 0', cursor: 'pointer', fontSize: '1rem',  padding: '1.5rem'}}
         />
       ))}
     </div>
