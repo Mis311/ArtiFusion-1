@@ -3,6 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import UploadIcon from '@mui/icons-material/Upload';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Link from 'next/link';
 
 const UploadMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -15,11 +16,6 @@ const UploadMenu = () => {
     setAnchorEl(null);
   };
 
-  const handleUploadOptionClick = () => {
- 
-    handleClose();
-  };
-
   return (
     <>
       <IconButton color="primary" onClick={handleClick}>
@@ -30,15 +26,15 @@ const UploadMenu = () => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => handleUploadOptionClick('Image')}>
-          Image
-        </MenuItem>
-        <MenuItem onClick={() => handleUploadOptionClick('Manga/Visual Novels')}>
-          Manga/Visual Novels
-        </MenuItem>
-        <MenuItem onClick={() => handleUploadOptionClick('Stories')}>
-          Stories
-        </MenuItem>
+        <Link href="/upload">
+          <MenuItem onClick={handleClose}>Image</MenuItem>
+        </Link>
+        <Link href="/upload">
+          <MenuItem onClick={handleClose}>Manga/Visual Novels</MenuItem>
+        </Link>
+        <Link href="/upload">
+          <MenuItem onClick={handleClose}>Stories</MenuItem>
+        </Link>
       </Menu>
     </>
   );

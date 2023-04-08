@@ -50,10 +50,12 @@ const Navbar = () => {
           <Link href="/user">
             <a>Profile</a>
           </Link>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
           <Link href="/upload">
             <a>Upload</a>
           </Link>
-
           {isAuthenticated && (
             <li onClick={() => dispatch(actions.deauthenticate())}>
               <a>Log Out</a>
@@ -72,9 +74,9 @@ const Navbar = () => {
           <div className="column is-narrow">
             <div className="navbar-end">
               <div className="navbar-item">
-              <div className="level-item">
+                <div className="level-item">
                   <UploadMenu />
-              </div>
+                </div>
                 <IconButton color="primary">
                   <NotificationsIcon />
                 </IconButton>
@@ -82,7 +84,7 @@ const Navbar = () => {
                   <Avatar
                     alt="Profile Picture"
                     src="/static/images/avatar/1.jpg"
-                    style={{cursor: 'pointer'}}
+                    style={{ cursor: 'pointer' }}
                   />
                 </Link>
               </div>
