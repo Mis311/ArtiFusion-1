@@ -32,7 +32,7 @@ const UploadMenu = () => {
         <Link href="/upload">
           <MenuItem onClick={handleClose}>Manga/Visual Novels</MenuItem>
         </Link>
-        <Link href="/upload">
+        <Link href="/novel-upload">
           <MenuItem onClick={handleClose}>Stories</MenuItem>
         </Link>
       </Menu>

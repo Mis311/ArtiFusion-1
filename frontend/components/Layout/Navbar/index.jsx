@@ -80,7 +80,7 @@ const Navbar = () => {
                 <IconButton color="primary">
                   <NotificationsIcon />
                 </IconButton>
-                <Link href="/UserProfile">
+                <Link href="/user">
                   <Avatar
                     alt="Profile Picture"
                     src="/static/images/avatar/1.jpg"

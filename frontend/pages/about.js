@@ -1,8 +1,12 @@
 import { Container, Typography, Box } from '@mui/material';
-
+import NavBar from '../components/Layout/Navbar';
 const AboutPage = () => {
   return (
+   <>
+    <NavBar></NavBar>
+   
     <Container maxWidth="md">
+     
       <Box my={4}>
         <Typography variant="h2" component="h1" gutterBottom>
           About Artifusion
@@ -35,6 +39,7 @@ const AboutPage = () => {
         </Typography>
       </Box>
     </Container>
+    </>
   );
 };
 
