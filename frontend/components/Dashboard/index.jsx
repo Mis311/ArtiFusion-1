@@ -5,6 +5,7 @@ import { Chip } from '@mui/material';
 import verifyToken from '../../getInitialProps/verifyToken';
 import GalleryNavbar from './GalleryNavbar';
 import ContentRow from './ContentRow';
+import TopContent from './TopContent';
 
 import TagList from './TagList';
 
@@ -80,9 +81,13 @@ const Dashboard = () => {
   return (
     <div className="columns">
       <main className="column">
-        <GalleryNavbar onSelect={handleCategorySelect} />
+       
+        <TopContent />
+       
         <section className="section">
+        <GalleryNavbar onSelect={handleCategorySelect} />
           <div className="columns is-multiline">
+          
             {filteredContentItems.map(item => (
               <div className="column is-one-quarter" key={item.id}>
                 <ContentItem
