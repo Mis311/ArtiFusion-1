@@ -55,6 +55,10 @@ const Navbar = () => {
           </Link>
           <Link href="/upload">
             <a>Upload</a>
+          
+          </Link>
+          <Link href="/artipage">
+            <a>ArtiPage</a>
           </Link>
           {isAuthenticated && (
             <li onClick={() => dispatch(actions.deauthenticate())}>
