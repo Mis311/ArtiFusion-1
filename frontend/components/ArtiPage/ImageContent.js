@@ -1,5 +1,6 @@
-const ImageContent = ({ imageUrl }) => {
-  return <img src={imageUrl} alt="Image content" />;
+const ImageContent = ({ imageUrl, imageClassName }) => {
+  return <img src={imageUrl} alt="Artwork" className={imageClassName} />;
 };
+
 
 export default ImageContent;
